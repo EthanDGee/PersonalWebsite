@@ -8,10 +8,24 @@
     <link rel="stylesheet" href="{% static 'home/style.css' %}">
     <script src="{% static 'home/script.js' %}"></script>
 </head>
+
 <body>
     <div id="menu">
         <img src="{% static 'home/logo.jpg' %}" alt="logo" width="50" height="50"></span>
-        <p><a href="/">Home</a>  <a href="/about">About Me</a> <a href="/projects">Projects</a> <a href="/socials">Socials</a></p>
+        <p>
+            <a href="/">Home</a>
+            <a href="/about">About Me</a>
+            <a href="/projects">Projects</a>
+            <a href="/socials">Socials</a>
+            <a href="/music">Favorite Albums</a>
+        </p>
+        <a href="https://www.instagram.com/ethandgee/">
+            <img src="{% static 'home/instagram.jpg' %}" alt="instagram logo" width="40" height="40">
+        </a> 
+        <a href="https://github.com/EthanDGee">
+            <img src="{% static 'home/github.jpg' %}" alt="github logo" width="40" height="40">
+        </a>
     </div>
 </body>
-</html> 
+
+</html>
