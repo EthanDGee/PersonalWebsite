@@ -1,3 +1,40 @@
 h1 {
     text-align: center;
 }
+
+div {
+    border-radius: 10px;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    border-radius: 10px;
+    box-shadow: 0 0 7px black;
+
+    padding: 5px 4px;
+    margin: 5px;
+    background-color: aliceblue;
+    font-family: 'helvitica neue', Helvetica, sans-serif;
+    text-align: justify;
+}
+body {
+    background-image: url('/static/home/topographicTile.jpg');
+}
+
+#menu {
+    display:flex;
+    align-items: center;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: green;
+    border-width: 2px;
+    border-radius: 10px;
+    box-shadow: 0 0 7px black;
+    padding: 5px 4px;
+    margin: 5px;
+    background-color: aliceblue;
+    font-family: 'helvitica neue', Helvetica, sans-serif;
+}
+#menu > p {
+    vertical-align: middle;
+    text-align: justify;
+}
