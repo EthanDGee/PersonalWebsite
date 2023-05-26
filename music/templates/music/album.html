@@ -16,12 +16,19 @@
         <h2 class="header">
             {{ album.title }}
         </h2>
-            <img class="rounded border" src="{% static 'music/albumArtTest.jpg' %}" alt="{{ artist.name }}" height="500"
-            width="500">
+        <center>
+            <img class="rounded" src="{% static 'music/albumArtTest.jpg' %}" alt="{{ artist.name }}" height="500"
+                width="500">
+        </center>
+        <center>
             {% if album.favorite %}
-            <h3> STAR </h3>
-        {% endif %}
-        <div class="tile">
+            <img class="hoverless_tile" src="{% static 'music/starFilled.jpg' %}" alt="Filled Star" width="50"
+                height="50">
+            {% else %}
+            <img class="hoverless_tile" src="{% static 'music/star.jpg' %}" alt="Empty Star" width="50" height="50">
+            {% endif %}
+        </center>
+        <div class="hoverless_tile">
             <p>{{ album.description }}</p>
         </div>
     </div>

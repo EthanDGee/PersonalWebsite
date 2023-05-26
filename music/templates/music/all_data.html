@@ -24,6 +24,12 @@
             <div class="album tile">
                 <img src="{% static 'music/albumArtTest.jpg' %}" alt="{{ album.title }} album art" height="50" width="50">
                 <h4>{{ album.title }} by {{album.artists }} published on {{ album.pub_date }}</h4>
+            {% if album.favorite %}    
+                <img  src="{% static 'music/starFilled.jpg' %}" alt="Filled Star" width="50"
+                height="50">
+            {% else %}
+            <img  src="{% static 'music/star.jpg' %}" alt="Empty Star" width="50" height="50">
+            {% endif %}
             </div>
         </a>
         {% endfor %}
@@ -48,6 +54,12 @@
                     <h3>{{ artist }} </h3>
                     <p>{{ artist.description }}</p>
                 </div>
+                {% if artist.favorite %}    
+                <img  src="{% static 'music/starFilled.jpg' %}" alt="Filled Star" width="50"
+                height="50">
+            {% else %}
+            <img  src="{% static 'music/star.jpg' %}" alt="Empty Star" width="50" height="50">
+            {% endif %}
             </div>
         </a>
         {% endfor %}
