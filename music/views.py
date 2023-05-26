@@ -20,3 +20,8 @@ def all_data(request):
 def artist(request, artist_name):
     artist =  get_object_or_404(Artist, name=artist_name)
     return render(request, 'music/artist.html', {'artist': artist})
+
+def album(request, album_title):
+    album =  get_object_or_404(Album, title=album_title)
+    return render(request, 'music/album.html', {'album': album})
+
