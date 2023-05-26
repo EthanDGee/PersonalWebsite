@@ -12,7 +12,9 @@
 </head>
 
 <body>
-    <h1>Albums</h1>
+    <div class="header">
+        <h1>Albums</h1>
+    </div>
 
     {% if albums %}
     <div>
@@ -28,19 +30,23 @@
         <h2>No Albums are available at this time.</h2>
     </div>
     {% endif %}
-
-    <h1>Artists</h1>
+    <div class="header">
+        <h1>Artists</h1>
+    </div>
     {% if artists %}
     <div>
         {% for artist in artists %}
-        <div class="artist tile">
-            <img src="{% static 'music/artistProfileTest.jpg' %}" alt="{{ artist }}" height="60" width="60">
+        <a href="artist/{{artist.name }}">
 
-            <div>
-                <h3>{{ artist }} </h3>
-                <p>{{ artist.description }}</p>
+            <div class="artist tile">
+                <img src="{% static 'music/artistProfileTest.jpg' %}" alt="{{ artist }}" height="60" width="60">
+
+                <div>
+                    <h3>{{ artist }} </h3>
+                    <p>{{ artist.description }}</p>
+                </div>
             </div>
-        </div>
+        </a>
         {% endfor %}
     </div>
     {% else %}
@@ -48,8 +54,9 @@
         <h2>No Artists are available at this time.</h2>
     </div>
     {% endif %}
-
-    <h1>Genres</h1>
+    <div class="header">
+        <h1>Genres</h1>
+    </div>
     {% if genres %}
     <div style="display: flex; align-items: center;">
         {% for genre in genres %}
@@ -64,6 +71,15 @@
         <h2>No Genres are available at this time.</h2>
     </div>
     {% endif %}
+
+    <div id="sources">
+        <p>color_list = ["red", "crimson", "firebrick", "tomato", "coral", "salmon", "indianred", "orange", "orangered",
+            "darkorange", "chocolate", "sandybrown", "yellow", "gold", "goldenrod", "khaki", "palegoldenrod", "green",
+            "lime", "limegreen", "forestgreen", "seagreen", "olive", "olivedrab", "blue", "dodgerblue", "royalblue",
+            "steelblue", "skyblue", "lightblue", "indigo", "darkslateblue", "slateblue", "mediumslateblue", "violet",
+            "purple", "magenta", "fuchsia", "darkviolet", "darkorchid"]
+        </p>
+    </div>
 
 </body>
 

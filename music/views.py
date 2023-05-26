@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Album, Artist, Genre
 
 # Create your views here.
@@ -16,3 +16,7 @@ def all_data(request):
     artists = Artist.objects.all()
     genres = Genre.objects.all()
     return render(request, 'music/all_data.html', {'albums': albums, 'artists': artists, 'genres': genres, 'colors': colors})
+
+def artist(request, artist_name):
+    artist =  get_object_or_404(Artist, name=artist_name)
+    return render(request, 'music/artist.html', {'artist': artist})
