@@ -11,7 +11,7 @@ def homepage(request):
 def all_data(request):
     colors = ["red", "crimson", "firebrick", "tomato", "coral", "salmon", "indianred", "orange", "orangered", "darkorange", "chocolate", "sandybrown", "yellow", "gold", "goldenrod", "khaki", "palegoldenrod", "green", "lime", "limegreen",
                   "forestgreen", "seagreen", "olive", "olivedrab", "blue", "dodgerblue", "royalblue", "steelblue", "skyblue", "lightblue", "indigo", "darkslateblue", "slateblue", "mediumslateblue", "violet", "purple", "magenta", "fuchsia", "darkviolet", "darkorchid"]
- 
+
     albums = Album.objects.all()
     artists = Artist.objects.all()
     genres = Genre.objects.all()
@@ -25,3 +25,7 @@ def album(request, album_title):
     album =  get_object_or_404(Album, title=album_title)
     return render(request, 'music/album.html', {'album': album})
 
+
+def test(request):
+    color_list = ["red", "crimson", "firebrick", "tomato", "coral", "salmon", "indianred", "orange", "orangered", "darkorange", "chocolate", "sandybrown", "yellow", "gold", "goldenrod", "khaki", "palegoldenrod", "green", "lime", "limegreen", "forestgreen", "seagreen", "olive", "olivedrab", "blue", "dodgerblue", "royalblue", "steelblue", "skyblue", "lightblue", "indigo", "darkslateblue", "slateblue", "mediumslateblue", "violet", "purple", "magenta", "fuchsia", "darkviolet", "darkorchid"]
+    return render(request, 'music/test.html', {'colors': color_list})

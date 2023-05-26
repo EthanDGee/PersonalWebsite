@@ -12,6 +12,8 @@
 </head>
 
 <body>
+    {% include 'music/menu.html' %}
+
     <div class="header">
         <h1>Albums</h1>
     </div>
@@ -19,19 +21,22 @@
     {% if albums %}
     <div>
         {% for album in albums %}
-        <a href="album/{{ album.title}}">
 
-            <div class="album tile">
-                <img src="{% static 'music/albumArtTest.jpg' %}" alt="{{ album.title }} album art" height="50" width="50">
-                <h4>{{ album.title }} by {{album.artists }} published on {{ album.pub_date }}</h4>
-            {% if album.favorite %}    
-                <img  src="{% static 'music/starFilled.jpg' %}" alt="Filled Star" width="50"
-                height="50">
+        <div class="album tile">
+            <img src="{% static 'music/albumArtTest.jpg' %}" alt="{{ album.title }} album art" height="50" width="50">
+            <a href="album/{{ album.title}}">
+                <h3>{{ album.title }}</h3>
+            </a>
+                {% for artist in album.artists_set.all %}
+                    <p>{{ artist }}</p>
+                {% endfor %}
+                <p>{{ album.pub_date }}</p>
+            {% if album.favorite %}
+            <img src="{% static 'music/starFilled.jpg' %}" alt="Filled Star" width="50" height="50">
             {% else %}
-            <img  src="{% static 'music/star.jpg' %}" alt="Empty Star" width="50" height="50">
+            <img src="{% static 'music/star.jpg' %}" alt="Empty Star" width="50" height="50">
             {% endif %}
-            </div>
-        </a>
+        </div>
         {% endfor %}
     </div>
     {% else %}
@@ -54,12 +59,11 @@
                     <h3>{{ artist }} </h3>
                     <p>{{ artist.description }}</p>
                 </div>
-                {% if artist.favorite %}    
-                <img  src="{% static 'music/starFilled.jpg' %}" alt="Filled Star" width="50"
-                height="50">
-            {% else %}
-            <img  src="{% static 'music/star.jpg' %}" alt="Empty Star" width="50" height="50">
-            {% endif %}
+                {% if artist.favorite %}
+                <img src="{% static 'music/starFilled.jpg' %}" alt="Filled Star" width="50" height="50">
+                {% else %}
+                <img src="{% static 'music/star.jpg' %}" alt="Empty Star" width="50" height="50">
+                {% endif %}
             </div>
         </a>
         {% endfor %}
@@ -88,7 +92,8 @@
     {% endif %}
 
     <div id="sources">
-        <p>color_list = ["red", "crimson", "firebrick", "tomato", "coral", "salmon", "indianred", "orange", "orangered",
+        <p>
+            color_list = ["red", "crimson", "firebrick", "tomato", "coral", "salmon", "indianred", "orange", "orangered",
             "darkorange", "chocolate", "sandybrown", "yellow", "gold", "goldenrod", "khaki", "palegoldenrod", "green",
             "lime", "limegreen", "forestgreen", "seagreen", "olive", "olivedrab", "blue", "dodgerblue", "royalblue",
             "steelblue", "skyblue", "lightblue", "indigo", "darkslateblue", "slateblue", "mediumslateblue", "violet",

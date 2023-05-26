@@ -29,5 +29,19 @@ class Album(models.Model):
     description = models.CharField(max_length=500)
     favorite = models.BooleanField(default=False)
 
+    def stringArtists(self):
+        #return type(self.artists)
+        
+        # artist_string = ""
+        # if len(self.artists) > 1:
+        #     for x in range(len(self.artists)-2):
+        #         artist_string += self.artists[x]+', '
+        #     artist_string += "and " + self.artists[-1]    
+        # else:
+        #     artist_string = self.artists[0]
+
+        # return artist_string
+        return "Work in progress"
+
     def __str__(self):
-        return f'{self.title} by {self.artists}'
+        return f'{self.title} by {self.stringArtists()}'
