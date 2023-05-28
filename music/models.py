@@ -1,5 +1,5 @@
 from django.db import models
-
+import datetime
 # Create your models here.
 
 
@@ -28,6 +28,7 @@ class Album(models.Model):
     pub_date = models.DateField()
     description = models.CharField(max_length=500)
     favorite = models.BooleanField(default=False)
+    review_date = models.DateField(default=datetime.date.today)
 
     def stringArtists(self):
         #return type(self.artists)

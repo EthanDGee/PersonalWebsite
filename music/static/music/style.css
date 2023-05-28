@@ -19,10 +19,16 @@
 }
 
 
-#menu>div>p {
+#menu>div> {
     align-self: center;
     text-align: center;
+    text
 }
+
+#menu>div:hover {
+    background-color: lightslategrey;
+}
+
 
 
 body {
@@ -129,6 +135,19 @@ body {
     size: 100px;
 }
 
+.scale_box{
+    background-color: orange;
+    display: flex;
+    
+}
+
+.scaled {
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    display: table-column;
+}
+ 
 a>div>div>p {
 
     text-decoration: none;

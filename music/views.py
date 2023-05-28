@@ -1,11 +1,11 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Album, Artist, Genre
-
 # Create your views here.
 
-
 def homepage(request):
-    return render(request, 'music/homepage.html')
+    latest_albums = Album.objects.order_by('-review_date')[:6]
+    
+    return render(request, 'music/homepage.html', { 'latest_albums': latest_albums})
 
 
 def all_data(request):
