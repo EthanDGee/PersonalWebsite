@@ -18,17 +18,20 @@
     border-color: black;
 }
 
+div > a {
 
-#menu>div> {
+    text-decoration: none;
+}
+
+#menu>div>a {
     align-self: center;
     text-align: center;
-    text
+
 }
 
 #menu>div:hover {
     background-color: lightslategrey;
 }
-
 
 
 body {
@@ -45,6 +48,15 @@ body {
     border-right: 0px;
     border-style: solid;
     box-shadow: 0 0 10px black;
+
+}
+
+.recents_box{
+    display: grid;
+    height: 100%;
+}
+
+.recent {
 
 }
 
