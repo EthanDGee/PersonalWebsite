@@ -15,9 +15,14 @@
     {% include 'music/menu.html' %}
 
     <div class="profile">
-        <h2 class="header">
-            {{ album.title }}
-        </h2>
+        <div class="header">
+            <h2>{{ album.title }}</h2>
+            <p> 
+                {% for artist in album.artists.all %}
+                 <a href="http://{{request.get_host}}/music/artists/{{artist.name}}">{{ artist.name }}</a> 
+                {%endfor%}
+            </p>
+        </div>
         <center>
             <img class="rounded" src="{% static 'music/albumArtTest.jpg' %}" alt="{{ artist.name }}" height="500"
                 width="500">

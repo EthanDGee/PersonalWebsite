@@ -27,9 +27,11 @@
             <a href="album/{{ album.title}}">
                 <h3>{{ album.title }}</h3>
             </a>
-                {% for artist in album.artists_set.all %}
-                    <p>{{ artist }}</p>
-                {% endfor %}
+                <p> 
+                    {% for artist in album.artists.all %}
+                     <a href="http://{{request.get_host}}/music/artists/{{artist.name}}">{{ artist.name }}</a> 
+                    {%endfor%}
+                </p>
                 <p>{{ album.pub_date }}</p>
             {% if album.favorite %}
             <img src="{% static 'music/starFilled.jpg' %}" alt="Filled Star" width="50" height="50">

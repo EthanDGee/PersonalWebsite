@@ -4,11 +4,11 @@ from .models import Album, Artist, Genre
 
 
 def homepage(request):
-    latest_albums = Album.objects.order_by('-review_date')[:6]
+    latest_albums = Album.objects.order_by('-review_date')[0:6]
     latest_favorite = Album.objects.filter(
-        favorite='True').order_by('review_date')[0]
+        favorite='True').order_by('-review_date')[0]
     print('\n\n\n\n\n\n')
-    print(latest_favorite)
+    print(latest_favorite.artists.all())
     print('\n\n\n\n\n\n')
 
     return render(request, 'music/homepage.html', {'favorite': latest_favorite,'latest_albums': latest_albums})

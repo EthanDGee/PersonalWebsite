@@ -27,10 +27,12 @@
             <a href="http://{{request.get_host}}/music/albums/{{ album.title}}">
                 <h3>{{ album.title }}</h3>
             </a>
-                {% for artist in album.artists_set.all %}
-                    <p>{{ artist }}</p>
-                {% endfor %}
-                <p>{{ album.pub_date }}</p>
+            <p> 
+                {% for artist in album.artists.all %}
+                 <a href="http://{{request.get_host}}/music/artists/{{artist.name}}">{{ artist.name }}</a> 
+                {%endfor%}
+            </p>
+            <p>{{ album.pub_date }}</p>
             {% if album.favorite %}
             <img src="{% static 'music/starFilled.jpg' %}" alt="Filled Star" width="50" height="50">
             {% else %}
@@ -93,7 +95,8 @@
 
     <div id="sources">
         <p>
-            color_list = ["red", "crimson", "firebrick", "tomato", "coral", "salmon", "indianred", "orange", "orangered",
+            color_list = ["red", "crimson", "firebrick", "tomato", "coral", "salmon", "indianred", "orange",
+            "orangered",
             "darkorange", "chocolate", "sandybrown", "yellow", "gold", "goldenrod", "khaki", "palegoldenrod", "green",
             "lime", "limegreen", "forestgreen", "seagreen", "olive", "olivedrab", "blue", "dodgerblue", "royalblue",
             "steelblue", "skyblue", "lightblue", "indigo", "darkslateblue", "slateblue", "mediumslateblue", "violet",

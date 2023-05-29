@@ -1,56 +1,64 @@
 <!DOCTYPE html>
 <html lang="en-US">
 
-<head>
-    <title>Music Home Page</title>
-    <meta charset="utf-8">
-    {% load static %}
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    <head>
+        <title>Music Home Page</title>
+        <meta charset="utf-8">
+        {% load static %}
+        <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"> -->
-    <link rel="stylesheet" href="{% static 'music/style.css' %}">
-    <script src="{% static 'music/script.js' %}"></script>
-</head>
+        <link rel="stylesheet" href="{% static 'music/style.css' %}">
+        <script src="{% static 'music/script.js' %}"></script>
+    </head>
 
-<body>
-    {% include 'music/menu.html' %}
-    <div style="display: flex; height: 100%;">
-        <div style="width: 60%; height: 100%; background-color: green; align-items: center;">
-            <h2>Most Recently Reviewed Album</h2>
-            <h3 style="text-align: center;">{{ favorite.title }}<br>by {{ favorite.artists }}</h3>
+    <body>
+        {% include 'music/menu.html' %}
+        <div style="display: flex; height: 100%;">
+            <a href="http://{{request.get_host}}/music/albums/{{favorite.title}}">
+                <div style="width: 60%; height: 100%; background-color: green; align-items: center;">
 
-            <div style="padding: 2%; padding-top: 1%;">
-                <center>
+                    <h2 style="text-align: center;">Latest Favorite Album</h2>
+                    <h3 style="text-align: center;">{{ favorite.title }}<br> by
+                        {% for artist in favorite.artists.all %}
+                        <a href="http://{{request.get_host}}/music/artists/{{artist.name}}">{{ artist.name }}</a>
+                        {% endfor%}
+                    </h3>
+                    <div style="padding: 2%; padding-top: 1%;">
+                        <center>
 
-                    <img class="rounded border" src="{% static 'music/albumArtTest.jpg' %}"
-                    alt="{{ favorite.title }} album cover" height="65%" width="65%">
-                </center>
-                    <div style="padding: 2%; display: flex;">
-                        <p>{{favorite.description}}</p>
-                </div>
-            </div>
+                            <img class="rounded border" src="{% static 'music/albumArtTest.jpg' %}"
+                                alt="{{ favorite.title }} album cover" height="65%" width="65%">
+                        </center>
+                        <div style="padding: 2%; display: flex;">
+                            <p>{{favorite.description}}</p>
+                        </div>
+                    </div>
+            </a>
             <div></div>
         </div>
-        <div style="width:40%; height: 100%; background-color: blue; ">
-            <h2>Latest Albums</h2>
-            <p>Most recently reviewed albums</p>
+        <div style="width:40%; height: 100%; background-color: orange; ">
+            <h2>Latest Reviews</h2>
             <div class="recents_box" style="display: grid;">
                 {% for album in latest_albums %}
-                <div class="recent" style="height: 20%;">
-                    <h4>{{ album.title }}</h4><!--  <br>
-                    <h5>{{album.artists }}</h5> -->
+                <div class="recent">
+                    <a href="http://{{request.get_host}}/music/albums/{{album.title }}">{{ album.title }}</a>
+                    ({{album.review_date }})
+
+
+                    <p>
+                        {% for artist in album.artists.all %}
+                        <a href="http://{{request.get_host}}/music/artists/{{artist.name}}">{{ artist.name }}</a>
+                        {%endfor%}
+                    </p>
                 </div>
                 {% endfor %}
             </div>
         </div>
 
-    </div>
-    <div class="tile">
-        <h1>SHODFIDJ</h1>br 
-        
-        <h1>{{request.get_host}}</h1>
-    </div>
+        </div>
 
 
-</body>
+
+    </body>
 
 </html>
