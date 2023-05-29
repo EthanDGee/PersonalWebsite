@@ -6,7 +6,6 @@ __pycache__
 *.zip
 *.bak
 db.sqlite3
-personalWebsite/settings.py
 .vscode/
 migrations/
 secret/
