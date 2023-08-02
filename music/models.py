@@ -16,6 +16,7 @@ class Artist(models.Model):
     description = models.CharField(max_length=500)
     favorite = models.BooleanField(default=False)
     genres = models.ManyToManyField(Genre)
+    profile = models.ImageField(upload_to='images')
 
     def __str__(self):
         return self.name
@@ -29,15 +30,16 @@ class Album(models.Model):
     description = models.CharField(max_length=500)
     favorite = models.BooleanField(default=False)
     review_date = models.DateField(default=datetime.date.today)
+    art = models.ImageField(upload_to='images')
 
     def stringArtists(self):
-        #return type(self.artists)
-        
+        # return type(self.artists)
+
         # artist_string = ""
         # if len(self.artists) > 1:
         #     for x in range(len(self.artists)-2):
         #         artist_string += self.artists[x]+', '
-        #     artist_string += "and " + self.artists[-1]    
+        #     artist_string += "and " + self.artists[-1]
         # else:
         #     artist_string = self.artists[0]
 

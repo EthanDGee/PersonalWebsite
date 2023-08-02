@@ -1,9 +1,3 @@
-@font-face {
-    font-family: "myFont";
-    src: url("/static/music/RubricPuddles.tff");
-}
-
-
 #menu {
     display: flex;
     align-items: center;
@@ -64,6 +58,9 @@ body {
     border-style: solid;
     border-color: pink;
     border-width: 2px;
+}
+.recent:hover {
+    background-color: pink;
 }
 
 .recent>a {

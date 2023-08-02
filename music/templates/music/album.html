@@ -1,48 +1,50 @@
 <!DOCTYPE html>
 <html lang="en-US">
 
-<head>
-    <title>{{ album.title }}</title>
-    <meta charset="utf-8">
-    {% load static %}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'music/style.css' %}">
-    <script src="{% static 'music/script.js' %}"></script>
-</head>
+    <head>
+        <title>{{ album.title }}</title>
+        <meta charset="utf-8">
+        {% load static %}
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'music/style.css' %}">
+        <script src="{% static 'music/script.js' %}"></script>
+    </head>
 
-<body>
-    {% include 'music/menu.html' %}
+    <body>
+        {% include 'music/menu.html' %}
 
-    <div class="profile">
-        <div class="header">
-            <h2>{{ album.title }}</h2>
-            <p> 
-                {% for artist in album.artists.all %}
-                 <a href="http://{{request.get_host}}/music/artists/{{artist.name}}">{{ artist.name }}</a> 
-                {%endfor%}
-            </p>
+        <div class="profile">
+            <div class="header">
+                <h2>{{ album.title }}</h2>
+                <p>
+                    {% for artist in album.artists.all %}
+                    <a href="http://{{request.get_host}}/music/artists/{{artist.name}}">{{ artist.name }}</a>
+                    {% endfor %}
+                </p>
+            </div>
+            <center>
+                {% if album.art %}
+                <img class="rounded border" src="{{ album.art }}" alt="{{ album.title }}" height="500" width="500">
+
+                {% else %}
+
+                <img class="rounded" src="{% static 'music/albumArtTest.jpg' %}" alt="{{ artist.name }}" height="500"
+                    width="500">
+                {% endif %}
+            </center>
+            <center>
+                {% if album.favorite %}
+                <img class="hoverless_tile" src="{% static 'music/starFilled.jpg' %}" alt="Filled Star" width="50"
+                    height="50">
+                {% else %}
+                <img class="hoverless_tile" src="{% static 'music/star.jpg' %}" alt="Empty Star" width="50" height="50">
+                {% endif %}
+            </center>
+            <div class="hoverless_tile">
+                <p>{{ album.description }}</p>
+            </div>
         </div>
-        <center>
-            <img class="rounded" src="{% static 'music/albumArtTest.jpg' %}" alt="{{ artist.name }}" height="500"
-                width="500">
-        </center>
-        <center>
-            {% if album.favorite %}
-            <img class="hoverless_tile" src="{% static 'music/starFilled.jpg' %}" alt="Filled Star" width="50"
-                height="50">
-            {% else %}
-            <img class="hoverless_tile" src="{% static 'music/star.jpg' %}" alt="Empty Star" width="50" height="50">
-            {% endif %}
-        </center>
-        <div class="hoverless_tile">
-            <p>{{ album.description }}</p>
-        </div>
-    </div>
-<div id="sources">
-<p>Sources go here.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla facilisi morbi tempus iaculis urna id volutpat. Adipiscing commodo elit at imperdiet dui accumsan sit amet. Lobortis feugiat vivamus at augue eget arcu dictum varius. Donec ac odio tempor orci. Nulla porttitor massa id neque. Adipiscing elit ut aliquam purus. Morbi tristique senectus et netus et malesuada fames ac. Imperdiet proin fermentum leo vel orci. Eleifend donec pretium vulputate sapien. Leo a diam sollicitudin tempor id eu nisl. Quam quisque id diam vel. Morbi blandit cursus risus at ultrices mi. Sed egestas egestas fringilla phasellus faucibus. </p>
-</div>
-</body>
+    </body>
 
 </html>
