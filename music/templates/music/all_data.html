@@ -79,10 +79,10 @@
         <h1>Genres</h1>
     </div>
     {% if genres %}
-    <div style="display: flex; align-items: center;">
+    <div>
         {% for genre in genres %}
-        <div class="genre tile">
-            <h3>{{ genre }}</h3>
+        <div class=" tile">
+            <p><b>{{ genre }}</b> - {{genre.description|truncatewords:25 }}</p>
         </div>
         {% endfor %}
     </div>
@@ -93,17 +93,7 @@
     </div>
     {% endif %}
 
-    <div id="sources">
-        <p>
-            color_list = ["red", "crimson", "firebrick", "tomato", "coral", "salmon", "indianred", "orange",
-            "orangered",
-            "darkorange", "chocolate", "sandybrown", "yellow", "gold", "goldenrod", "khaki", "palegoldenrod", "green",
-            "lime", "limegreen", "forestgreen", "seagreen", "olive", "olivedrab", "blue", "dodgerblue", "royalblue",
-            "steelblue", "skyblue", "lightblue", "indigo", "darkslateblue", "slateblue", "mediumslateblue", "violet",
-            "purple", "magenta", "fuchsia", "darkviolet", "darkorchid"]
-        </p>
-    </div>
-
+    
 </body>
 
 </html>
