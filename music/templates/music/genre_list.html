@@ -23,7 +23,7 @@
 
         <div class="genre">
             <h3>{{ genre.name }}</h3>
-            <p>{{ genre.description }}</p>
+            <p>{{ genre.description|truncatewords:25 }}</p>
             
         </div>
         {% endfor %}
